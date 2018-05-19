@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,21 +20,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="XhY-w5-Vx2" customClass="PlayingCardView" customModule="PlayingCard" customModuleProvider="target">
-                                <rect key="frame" x="16" y="44" width="343" height="734"/>
+                                <rect key="frame" x="16" y="137.66666666666669" width="342" height="546.66666666666652"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XhY-w5-Vx2" secondAttribute="height" multiplier="5:8" id="5RL-Ua-kYf"/>
+                                    <constraint firstAttribute="width" priority="250" constant="800" id="CAX-MD-l2C"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isFaceUp" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Fdv-5l-5hF" appends="YES" id="qOU-mH-mP2"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.85307045397035575" blue="0.52996645834319223" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="XhY-w5-Vx2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7AU-Tc-d4r"/>
-                            <constraint firstItem="XhY-w5-Vx2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="SnR-TU-Hzs"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XhY-w5-Vx2" secondAttribute="trailing" constant="16" id="mA2-hk-rTN"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XhY-w5-Vx2" secondAttribute="bottom" id="yhE-Vl-Uul"/>
+                            <constraint firstItem="XhY-w5-Vx2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="7AU-Tc-d4r"/>
+                            <constraint firstItem="XhY-w5-Vx2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="I2j-VH-OSA"/>
+                            <constraint firstItem="XhY-w5-Vx2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="SnR-TU-Hzs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XhY-w5-Vx2" secondAttribute="trailing" constant="16" id="mA2-hk-rTN"/>
+                            <constraint firstItem="XhY-w5-Vx2" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="tD8-BC-kMd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="XhY-w5-Vx2" secondAttribute="bottom" constant="16" id="yhE-Vl-Uul"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="PlayingCardView" destination="XhY-w5-Vx2" id="25i-SP-NvJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Fdv-5l-5hF">
+                    <connections>
+                        <action selector="flipCard:" destination="BYZ-38-t0r" id="TKV-6c-zUL"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="118.22660098522168"/>
         </scene>
